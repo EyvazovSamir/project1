@@ -1,0 +1,1032 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  max-width: 1125px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+/* HEADER */
+
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  position: absolute;
+  margin-left: 65px;
+  padding-top: 55px;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* NAV */
+
+.nav {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+}
+
+.nav__link {
+  display: inline-block;
+  vertical-align: top;
+
+  margin: 0 35px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.1s linear;
+}
+
+.nav__link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  opacity: 0;
+  background-color: rgb(46, 45, 45);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  transition: opacity 0.1s;
+}
+
+.nav__link:hover {
+  color: #e91f22;
+}
+
+.nav__link:hover::after {
+  display: block;
+  opacity: 1;
+}
+
+.nav-toggle {
+  width: 30px;
+  position: absolute;
+  padding: 15px 0;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  display: none;
+}
+.nav-toggle__item {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.nav-toggle__item::before,
+.nav-toggle__item:after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background: #fff;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-toggle__item::before {
+  top: -8px;
+}
+
+.nav-toggle__item::after {
+  bottom: -8px;
+}
+
+/* INTRO */
+
+.intro {
+  width: 100%;
+  height: 795px;
+  background: url("img/intro.png") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro__inner {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro__title {
+  font-family: "Quicksand", sans-serif;
+  font-size: 60px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.intro__subtitle {
+  max-width: 580px;
+  width: 100%;
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.intro__arrow {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  bottom: -285px;
+}
+
+/* PERSON */
+
+.person {
+  padding-top: 60px;
+
+  height: 143px;
+  background-color: #f5f6f7;
+}
+
+.person__checkbox {
+  text-transform: uppercase;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #333333;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.person_product {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-color: #aa9b77;
+  background: url(img/fa_check_10.png) center no-repeat;
+}
+
+label {
+  padding-right: 30px;
+}
+
+label::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 24px;
+  background-color: #ffffff;
+  border: 2px solid #aa9b77;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 19px;
+}
+
+.products {
+  position: relative;
+  bottom: 13px;
+}
+.btn__products {
+  text-decoration: none;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+
+  font-family: "Quicksand", sans-serif;
+  padding: 20px 33px;
+  text-transform: uppercase;
+}
+.btn--white {
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #aa9b77;
+}
+
+/* CLOTHES MEN */
+
+.men__category {
+  overflow: hidden;
+  /* Выравнивание заголовка по центру, 
+    ** можно использовать left, right */
+  text-align: left;
+  /* Тут можно добавить другие стили для заголовка */
+  font-size: 30px;
+  margin-top: 88px;
+}
+
+.men__category span {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Quicksand", sans-serif;
+
+  text-transform: uppercase;
+  color: #424242;
+
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-right: 53px;
+}
+
+.men__category:after {
+  /* Обязательно указываем пустое свойство content, 
+    ** иначе псевдоэлементы не появятся на сайте */
+  content: "";
+  /* Указываем что наши линии будут строчно-блочные и 
+    ** выравнивание по высоте - по центру */
+  display: inline-block;
+  vertical-align: middle;
+  /* Задаем ширину 100% и выбираем высоту линии, 
+    ** в нашем примере она равна 4 пикселям */
+  width: 996px;
+  height: 1px;
+  /* Добавляем цвет для линии */
+  background-color: #cccccc;
+  /* Добавляем пседоэлемантам возможность изменить 
+    ** позицию линии, для создания отступов от текста */
+  position: relative;
+}
+
+.men__category:after {
+  /* Смещаем правую линию на 100% вправо, чтобы 
+  ** линия встала рядом с текстом справа */
+  margin-right: -100%;
+  /* Указываем в пикселях отступ линии от текста заголовка */
+}
+
+.clothes__men {
+  height: 495px;
+  max-width: 100%;
+  height: auto;
+}
+
+.clothes__choice {
+  margin-top: 57px;
+}
+.clothes__choice__page {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #aa9b77;
+  font-family: "Quicksand", sans-serif;
+}
+.page__left__right {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.page__left {
+  margin-right: 8px;
+}
+
+.clothes__men__all {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.clothes__men__tshirt {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__men__tshirt__size {
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 0;
+}
+
+.clothes__men__tshirt_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.clothes__men__tshirt__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 40px;
+}
+.clothes__men__tshirt__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 27px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+.clothes__men__pants {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__men__pants__size {
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 0;
+}
+.clothes__men__pants_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.clothes__men__pants__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 15px;
+}
+.clothes__men__pants__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 29px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+.clothes__men__backpack {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__men__backpack__size {
+  margin-left: 25px;
+  margin-top: 25px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+}
+.clothes__men__backpack_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.clothes__men__backpack__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 42px;
+}
+.clothes__men__backpack__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 34px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+
+.clothes__men__tshirt:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.clothes__men__tshirt:hover .dot1 {
+  background: url(img/ellisse_1_48.png) right no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 31px;
+  right: 79px;
+  width: 22px;
+  height: 21px;
+}
+
+.clothes__men__tshirt:hover .dot2 {
+  background: url(img/ellisse_2_49.png) right no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 31px;
+  right: 52px;
+  width: 22px;
+  height: 21px;
+}
+
+.clothes__men__tshirt:hover .dot3 {
+  background: url(img/ellisse_3_50.png) right no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 31px;
+  right: 25px;
+  width: 22px;
+  height: 21px;
+}
+
+.clothes__men__pants:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.clothes__men__backpack:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+/* CLOTHES WOMEN */
+
+.women__category {
+  overflow: hidden;
+  /* Выравнивание заголовка по центру, 
+    ** можно использовать left, right */
+  text-align: right;
+  /* Тут можно добавить другие стили для заголовка */
+  font-size: 30px;
+  margin-top: 88px;
+}
+
+.women__category span {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "Quicksand", sans-serif;
+
+  text-transform: uppercase;
+  color: #424242;
+
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.women__category::before {
+  /* Обязательно указываем пустое свойство content, 
+    ** иначе псевдоэлементы не появятся на сайте */
+  content: "";
+  /* Указываем что наши линии будут строчно-блочные и 
+    ** выравнивание по высоте - по центру */
+  display: inline-block;
+  vertical-align: middle;
+  /* Задаем ширину 100% и выбираем высоту линии, 
+    ** в нашем примере она равна 4 пикселям */
+  width: 996px;
+  height: 1px;
+  /* Добавляем цвет для линии */
+  background-color: #cccccc;
+  /* Добавляем пседоэлемантам возможность изменить 
+    ** позицию линии, для создания отступов от текста */
+  position: relative;
+}
+
+.women__category:before {
+  /* Смещаем правую линию на 100% вправо, чтобы 
+  ** линия встала рядом с текстом справа */
+  margin-left: -100%;
+  /* Указываем в пикселях отступ линии от текста заголовка */
+}
+
+.clothes__women {
+  height: 495px;
+}
+
+.women__clothes__choice {
+  margin-top: 67px;
+}
+.women__clothes__choice__page {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: bold;
+  color: #aa9b77;
+  font-family: "Quicksand", sans-serif;
+}
+.women__page__left__right {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.women__page__left {
+  margin-right: 8px;
+}
+
+.clothes__women__all {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.clothes__women__giacket {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__women__giacket__size {
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 0;
+}
+
+.clothes__women__giacket_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.clothes__women__giacket__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 36px;
+}
+.clothes__women__giacket__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 14px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+
+.clothes__women__shoes {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__women__shoes__size {
+  margin-left: 25px;
+  margin-top: 30px;
+  border: 0;
+}
+.clothes__women__shoes_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.clothes__women__shoes__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 102px;
+}
+.clothes__women__shoes__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 17px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+
+.clothes__women__tshirt {
+  width: 320px;
+  height: 378px;
+  background-color: #f5f6f7;
+  position: relative;
+}
+.clothes__women__tshirt__size {
+  border: 0;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+.clothes__women__tshirt_img {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.clothes__women__tshirt__name {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #aa9b77;
+  margin-left: 25px;
+  margin-top: 36px;
+}
+.clothes__women__tshirt__price {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 18px;
+  margin-right: 25px;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  font-family: "Quicksand", sans-serif;
+}
+
+.clothes__women__tshirt:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.clothes__women__tshirt:hover .dot4 {
+  background: url(img/color_1_97.png) right no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 31px;
+  right: 50px;
+  width: 22px;
+  height: 21px;
+}
+
+.clothes__women__tshirt:hover .dot5 {
+  background: url(img/color_2_98.png) right no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 31px;
+  right: 23px;
+  width: 22px;
+  height: 21px;
+}
+
+.clothes__women__giacket:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+.clothes__women__shoes:hover {
+  border: 6px solid #aa9b77;
+  border-radius: 3px;
+  transition: 0.15s;
+}
+
+select {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #424242;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: 0px;
+  border: 0;
+  padding: 0 17px 0 2px;
+  background: url(img/fa_angle_down_51.png) no-repeat;
+  background-position: 38px 6px;
+}
+
+select:checked {
+  border: 0;
+}
+
+/* INFO */
+
+.info {
+  margin-top: 131px;
+  height: 400px;
+  background-color: #aa9b77;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info__all {
+  max-width: 710px;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.info__about__as {
+  font-family: "Quicksand", sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #837659;
+  overflow: hidden;
+  text-align: center;
+}
+
+.info__about__as:before,
+.info__about__as:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 2px;
+  background-color: #918363;
+  position: relative;
+  margin-top: 22px;
+}
+.info__about__as:before {
+  margin-left: -100%;
+  left: -12px;
+}
+.info__about__as:after {
+  margin-right: -100%;
+  right: -12px;
+}
+
+.info__about__as__text {
+  font-weight: bold;
+  color: #424242;
+  height: 250px;
+  width: 710px;
+  border-right: 2px solid #918363;
+  border-left: solid 2px #918363;
+  padding-left: 122px;
+  padding-right: 122px;
+  padding-top: 70px;
+}
+
+.border {
+  border-bottom: 2px solid #918363;
+}
+
+/* TWITTER */
+
+.twitter {
+  width: 100%;
+  height: 70px;
+  background-color: #535253;
+  padding-top: 25px;
+}
+
+.twitter__commerce {
+  display: flex;
+}
+
+.twitter__logo {
+  margin-left: -45px;
+}
+.twitter__text {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+
+.footer {
+  height: 354px;
+  background-color: #424242;
+  width: 100%;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Quicksand", sans-serif;
+}
+.footer__content__text {
+  padding-top: 109px;
+  max-width: 308px;
+  display: flex;
+  flex-direction: column;
+  margin-left: -63px;
+}
+.footer__content__text__title {
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.footer__content__text__subtitle {
+  font-size: 8px;
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 15px;
+}
+.footer__content__other {
+  padding-top: 138px;
+}
+.btn__other {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin-right: 12px;
+}
+
+.btn__other::after {
+  margin-left: 7px;
+  margin-top: 8px;
+  position: absolute;
+  height: 12px;
+  content: "";
+  border: 1px solid #aa9b77;
+}
+
+@media (max-width: 1125px) {
+  /* INTRO */
+  .intro__title {
+    font-size: 52px;
+  }
+
+  .intro__subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 990px) {
+  /* INTRO */
+  .intro__title {
+    font-size: 46px;
+  }
+
+  .intro__subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 770px) {
+  .nav {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgb(51, 172, 202);
+  }
+
+  .nav__link {
+    display: block;
+    margin: 0;
+    padding: 8px 20px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .person__checkbox {
+    font-size: 15px;
+  }
+}
